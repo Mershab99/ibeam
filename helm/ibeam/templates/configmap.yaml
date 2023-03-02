@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-configmap
+data:
+  INFLUX_HOST: "{{ .Release.Name }}-influxdb"
+  #KAFKA_BROKER_IP: "{{ .Release.Name }}-0.{{ .Release.Name }}-headless.default.svc.cluster.local"
+  KAFKA_CONSUMER_IP: "{{ .Release.Name }}-kafka"
+  KAFKA_BROKER_IP: "{{ .Release.Name }}-kafka"
+  PG_HOST: "{{ .Release.Name }}-postgresql"
+  PG_PWD: {{ .Values.PG_PWD | quote }}
+  PG_DB: {{ .Values.PG_DB | quote }}
+  PG_USER: {{ .Values.PG_USER | quote }}
+  IBEAM_ACCOUNT: {{ .Values.IBEAM_ACCOUNT | quote }}
+  IBEAM_PASSWORD: {{ .Values.IBEAM_PASSWORD | quote }}
+  IBEAM_MAX_FAILED_AUTH: "4"
