@@ -1,0 +1,9 @@
+include:
+  - project: 'brainaictrading/ci-templates'
+    file: 'faust_template-ci.yml'
+
+variables:
+  HELM_DIRECTORY: ./helm
+
+stages:
+  - package
